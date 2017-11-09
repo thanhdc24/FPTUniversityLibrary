@@ -1,0 +1,17 @@
+﻿@{
+    if (Session["USERTYPE"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    } else
+    {
+        int userType = (int)Session["USERTYPE"];
+        if (userType == 1)
+        {
+            Layout = "~/Views/Shared/_Staff.cshtml";
+        } else
+        {
+            Layout = "~/Views/Shared/_Student.cshtml";
+        }
+
+    }
+}

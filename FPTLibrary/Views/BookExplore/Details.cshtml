@@ -1,0 +1,35 @@
+﻿@model FPTLibrary.Models.tblBook
+
+@{
+    ViewBag.Title = Model.Name;
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+
+<div class="menuBar">
+    <ul>
+        <li>CATEGORIES</li>
+        <li><a href="/BookExplore/Catagory/All">ALL</a></li>
+        <li><a href="/BookExplore/News">NEW BOOK</a></li>
+        <li><a href="/BookExplore/TopTrend">TRENDING</a></li>
+        <li><a href="/BookExplore/Catagory?value=Engineer">ENGINEER</a></li>
+        <li><a href="/BookExplore/Catagory?value=Economic">ECONOMIC</a></li>
+        <li><a href="/BookExplore/Catagory?value=Design">DESIGN</a></li>
+        <li><a href="/BookExplore/Catagory?value=Others">OTHERS</a></li>
+    </ul>
+</div>
+
+
+<div class="mainInfo">
+    <div class="infoItem">
+        <div class="bookdetailCover">
+            <img src="@Model.CoverPicture" alt="IMG" />
+        </div>
+        <div class="bookdetailInfo">
+            <div style="font-size: 35px;">@Model.Name</div>
+            <div style="font-size: 25px; color: gray;">Author: @Model.Author  |  Catagories: @Model.Catagories   |  Bookshelf: @Model.Place</div>
+            <div style="font-size: 20px; font-family: Bn-Regular; text-align:justify;">@Model.Description</div>
+            <a href="/BookExplore"><div class="actionbutton">Back</div></a>
+        </div>
+    </div>
+</div>

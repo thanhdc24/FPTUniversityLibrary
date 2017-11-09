@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FPTLibrary.Models.tblBook>
+
+@{
+    ViewBag.Title = "Book Explore";
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+
+<div class="menuBar">
+    <ul>
+        <li>CATEGORIES</li>
+        <li><a href="/BookExplore/Catagory/All">ALL</a></li>
+        <li><a href="/BookExplore/News">NEW BOOK</a></li>
+        <li><a href="/BookExplore/TopTrend">TRENDING</a></li>
+        <li><a href="/BookExplore/Catagory?value=Engineer">ENGINEER</a></li>
+        <li><a href="/BookExplore/Catagory?value=Economic">ECONOMIC</a></li>
+        <li><a href="/BookExplore/Catagory?value=Design">DESIGN</a></li>
+        <li><a href="/BookExplore/Catagory?value=Others">OTHERS</a></li>
+    </ul>
+</div>
+
+
+<div class="mainBookList">
+
+    <div class="bookViewer">
+        <ul class="bookList">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div class="bookInfo" onclick="window.location.href = '/BookExplore/Details/@item.ID'">
+                        <img src="@item.CoverPicture" alt="IMG"/>
+                        @item.Name
+                        <span>@item.Author</span>
+                    </div>
+                    <div class="bookStatus">
+                        <span>@item.InstanceStatus</span>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

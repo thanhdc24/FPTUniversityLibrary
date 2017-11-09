@@ -1,0 +1,98 @@
+﻿@model IEnumerable<FPTLibrary.Models.tblBook>
+
+@{
+    ViewBag.Title = "Book Manage";
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+
+<div class="menuBar">
+    <ul>
+        <li style="width:20%;">ACTION</li>
+        <li style="width:40%;"><a href="/BookManage">BOOK MANAGE</a></li>
+        <li style="width:40%;"><a href="/BorrowsManage">BORROW-TRANSACTION MANAGE</a></li>
+    </ul>
+</div>
+
+
+<div class="mainInfo">
+    <div class="infoItem">
+        <div class="actionBar">
+            <div class="actionbutton"><a href="/BookManage/Create">CREATE NEW</a></div>
+
+            <div class="contentSearch">
+                <form action="/BookManage/Search" method="POST">
+                    <input type="text" name="searchValue" placeholder="Search..." />
+                </form>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div style="clear:both;"></div>
+
+        <table class="managetable">
+            <tr>
+                <th width="10%">
+                    Cover
+                </th>
+                <th width="10%">
+                    Catagories
+                </th>
+                <th width="30%">
+                    Name
+                </th>
+                <th width="10%">
+                    Author
+                </th>
+                <th width="10%">
+                    Shelf
+                </th>
+                <th width="10%">
+                    Status
+                </th>
+                <th width="20%">
+                    Action
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="@item.CoverPicture" style="width: 95%;" />
+                    </td>
+                    <td>
+                        @item.Catagories
+                    </td>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.Author
+                    </td>
+                    <td>
+                        @item.Place
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
+                    <td>
+                        @{
+                            if (item.Status.Equals("Available"))
+                            {
+                                <form action="/BorrowsManage/CreateBorrow" method="POST">
+                                    <input type="hidden" name="id" value="@item.ID" />
+                                    <input type="submit" value="Borrow" class="actionbutton" style="width: 100%; font-size:15px; margin-bottom: 5px;" />
+                                </form>
+                            }
+                        }
+                        <form action="/BookManage/Details" method="POST">
+                            <input type="hidden" name="id" value="@item.ID"/>
+                            <input type="submit" value="Details" class="actionbutton" style="width: 100%; font-size:15px;"/>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,68 @@
+﻿@model FPTLibrary.Models.tblBookDetail
+
+@{
+    ViewBag.Title = "Add New Instance";
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+<div class="menuBar">
+    <ul>
+        <li style="width:20%;">ACTION</li>
+        <li style="width:40%;"><a href="/BookManage">BOOK MANAGE</a></li>
+        <li style="width:40%;"><a href="/BorrowsManage">BORROW-TRANSACTION MANAGE</a></li>
+    </ul>
+</div>
+
+<div class="mainInfo">
+    <div class="infoItem">
+
+        <div class="formTitle">Add new Book Instance</div>
+
+        <div class="formDiv">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <table class="formTable">
+                    <tr>
+                        <td class="fieldName">
+                            Book Name
+                        </td>
+                        <td class="fieldInput">
+                            <input type="hidden" name="BookID" value="@Request.Params.Get("ID")" required />
+                            <input type="text" name="Book Name" value="@ViewBag.BookName" required readonly disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Instance ID
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="SubID" value="@Request.Params.Get("SubID")" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="errorBox">
+                            @ViewBag.CreateMessage
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Create" class="actionbutton" />
+                            <div class="actionbutton" style="margin-left:20px;"><a href="/BookManage/Details/@Request.Params.Get("ID")">Back</a></div>
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

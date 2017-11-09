@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "FPT Library Website";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mainInfo">
+    <div class="infoItem">
+
+        <div class="formTitle">FPT Library</div>
+
+        <div class="formDiv">
+            <form action="/Account/Login" method="POST">
+                <table class="formTable">
+                    <tr>
+                        <td class="fieldName">
+                            Email
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="email" value="@Request.Params.Get("email")" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Password
+                        </td>
+                        <td class="fieldInput">
+                            <input type="password" name="password" value="@Request.Params.Get("password")" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="errorBox">
+                            @ViewBag.LoginMessage
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Login" class="actionbutton"/>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+

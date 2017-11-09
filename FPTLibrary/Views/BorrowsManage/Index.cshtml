@@ -1,0 +1,87 @@
+﻿@model IEnumerable<FPTLibrary.Models.tblBorrow>
+
+@{
+    ViewBag.Title = "Transaction Manage";
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+
+<div class="menuBar">
+    <ul>
+        <li style="width:20%;">ACTION</li>
+        <li style="width:40%;"><a href="/BookManage">BOOK MANAGE</a></li>
+        <li style="width:40%;"><a href="/BorrowsManage">BORROW-TRANSACTION MANAGE</a></li>
+    </ul>
+</div>
+
+<div class="mainInfo">
+    <div class="infoItem">
+        <div class="actionBar">
+
+            <div class="contentSearch">
+                <form action="/BorrowsManage/Search" method="POST">
+                    <input type="text" name="searchValue" placeholder="Search..." />
+                </form>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div style="clear:both;"></div>
+
+        <table class="managetable">
+            <tr>
+                <th width="20%" align="left">
+                    Email
+                </th>
+                <th width="20%" align="left">
+                    Borrower
+                </th>
+                <th width="20%" align="left">
+                    Book Name
+                </th>
+                <th width="10%" align="left">
+                    Instance ID
+                </th>
+                <th width="10%" align="left">
+                    Return Date
+                </th>
+                <th width="10%" align="left">
+                    Extend Time
+                </th>
+                <th width="10%">
+                    Action
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td align="left">
+                        @item.BorrowerEmail
+                    </td>
+                    <td align="left">
+                        @item.tblAccount.Name
+                    </td>
+                    <td align="left">
+                        @item.tblBookDetail.tblBook.Name
+                    </td>
+                    <td align="left">
+                        @item.BookSubID
+                    </td>
+                    <td align="left">
+                        @item.ReturnDate.ToString("dd/MM/yyy")
+                    </td>
+                    <td align="left">
+                        @item.ExtendNumber
+                    </td>
+                    <td>
+                        <form action="/BorrowsManage/EndBorrow" method="POST">
+                            <input type="hidden" name="id" value="@item.ID"/>
+                            <input type="submit" value="End" class="actionbutton" style="width: 100%;"/>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

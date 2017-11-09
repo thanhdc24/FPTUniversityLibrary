@@ -1,0 +1,36 @@
+﻿@model FPTLibrary.Models.tblBook
+
+@{
+    ViewBag.Title = Model.Name;
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+
+<div class="menuBar">
+    <ul>
+        <li style="width:20%;">ACTION</li>
+        <li style="width:40%;"><a href="/BookManage">BOOK MANAGE</a></li>
+        <li style="width:40%;"><a href="/BorrowsManage">BORROW-TRANSACTION MANAGE</a></li>
+    </ul>
+</div>
+
+
+<div class="mainInfo">
+    <div class="infoItem">
+        <div class="bookdetailCover">
+            <img src="@Model.CoverPicture" alt="IMG" />
+        </div>
+        <div class="bookdetailInfo">
+            <div style="font-size: 35px;">@Model.Name</div>
+            <div style="font-size: 25px; color: gray;">Author: @Model.Author  |  Catagories: @Model.Catagories   |  Bookshelf: @Model.Place</div>
+            <div style="font-size: 20px; font-family: Bn-Regular; text-align:justify;">@Model.Description</div>
+            <div style="font-size: 25px; color: gray;">Create Date: @Model.AddDate.ToString("dd/MM/yyyy")  |  Status: @Model.Status</div>
+            
+            <a href="/BookDetailManage/Create?id=@Model.ID"><div class="actionbutton" style="width: 100%; font-size:15px;">Add Book Instance</div></a>
+
+            <a href="/BookManage/Edit?id=@Model.ID"><div class="actionbutton" style="width: 100%; font-size:15px;">Edit Book Infomation</div></a>
+
+            <a href="/BookManage"><div class="actionbutton" style="width: 100%; font-size:15px;">Back</div></a>
+        </div>
+    </div>
+</div>

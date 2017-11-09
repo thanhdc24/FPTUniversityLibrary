@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Staff.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/Student.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body class="mainBody" onload="runSlideShow(); init();">
+
+    <div class="header">
+        <div class="headerMenu">
+            <img class="headerMenuIcon" src="~/icon/headerMenu.png" alt="Menu">
+            <div class="headerMenuContent">
+                <ul>
+                    <li><a href="/BookManage">MANAGE</a></li>
+                    <li><a href="/BookExplore">EXPLORE</a></li>
+                    <li><a href="/BookShelf">BOOKSHELF</a></li>
+                    <li><a href="/Account/Logout">LOGOUT</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="headerSearchBar">
+            <form action="/BookExplore/Search" method="POST">
+                <input type="text" name="searchValue" placeholder="Search..." />
+            </form>
+        </div>
+
+        <div class="headerInfoUser">
+            <a href="/Account/Logout"><img class="headerInfoIcon" src="~/icon/logout.png" alt="Logout"></a>
+            <a href="/BookShelf"><img class="headerInfoIcon" src="~/icon/cart.png" alt="BookShelf"></a>
+
+            <span id="headerSumBox">@ViewBag.Rollnumber</span>
+        </div>
+    </div>
+
+    <!-- ------------------header------------------ -->
+
+    <div class="mainDiv">
+        <div class="slideShow">
+            <div class="imgContainer" id="imgContainer">
+                <img class="imgOfSlide" src="~/layoutImages/slideShow/1.jpg" alt="IMG">
+                <img class="imgOfSlide" src="~/layoutImages/slideShow/2.jpg" alt="IMG">
+                <img class="imgOfSlide" src="~/layoutImages/slideShow/3.jpg" alt="IMG">
+                <img class="imgOfSlide" src="~/layoutImages/slideShow/4.jpg" alt="IMG">
+                <img class="imgOfSlide" src="~/layoutImages/slideShow/5.jpg" alt="IMG">
+            </div>
+        </div>
+        <!-- ------------------slideShow------------------ -->
+
+        @RenderBody()
+
+
+    </div>
+</body>
+</html>

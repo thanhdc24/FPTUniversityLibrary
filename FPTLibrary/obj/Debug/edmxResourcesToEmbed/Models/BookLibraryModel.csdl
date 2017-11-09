@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookLibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAccount">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rollnumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tblBorrows" Relationship="Self.FK_tblBorrow_tblAccount" FromRole="tblAccount" ToRole="tblBorrow" />
+  </EntityType>
+  <EntityType Name="tblBook">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Catagories" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Place" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AddDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="CoverPicture" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblBookDetails" Relationship="Self.FK_tblBookDetail_tblBook" FromRole="tblBook" ToRole="tblBookDetail" />
+  </EntityType>
+  <EntityType Name="tblBookDetail">
+    <Key>
+      <PropertyRef Name="SubID" />
+    </Key>
+    <Property Name="SubID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BookID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="tblBook" Relationship="Self.FK_tblBookDetail_tblBook" FromRole="tblBookDetail" ToRole="tblBook" />
+    <NavigationProperty Name="tblBorrows" Relationship="Self.FK_tblBorrow_tblBookDetail" FromRole="tblBookDetail" ToRole="tblBorrow" />
+  </EntityType>
+  <EntityType Name="tblBorrow">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BorrowerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BookSubID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ReturnDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ExtendNumber" Type="Int32" Nullable="false" />
+    <Property Name="IsEnd" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblAccount" Relationship="Self.FK_tblBorrow_tblAccount" FromRole="tblBorrow" ToRole="tblAccount" />
+    <NavigationProperty Name="tblBookDetail" Relationship="Self.FK_tblBorrow_tblBookDetail" FromRole="tblBorrow" ToRole="tblBookDetail" />
+  </EntityType>
+  <Association Name="FK_tblBorrow_tblAccount">
+    <End Role="tblAccount" Type="Self.tblAccount" Multiplicity="1" />
+    <End Role="tblBorrow" Type="Self.tblBorrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAccount">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="tblBorrow">
+        <PropertyRef Name="BorrowerEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBookDetail_tblBook">
+    <End Role="tblBook" Type="Self.tblBook" Multiplicity="1" />
+    <End Role="tblBookDetail" Type="Self.tblBookDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBook">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblBookDetail">
+        <PropertyRef Name="BookID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBorrow_tblBookDetail">
+    <End Role="tblBookDetail" Type="Self.tblBookDetail" Multiplicity="1" />
+    <End Role="tblBorrow" Type="Self.tblBorrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBookDetail">
+        <PropertyRef Name="SubID" />
+      </Principal>
+      <Dependent Role="tblBorrow">
+        <PropertyRef Name="BookSubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookLibraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAccounts" EntityType="Self.tblAccount" />
+    <EntitySet Name="tblBooks" EntityType="Self.tblBook" />
+    <EntitySet Name="tblBookDetails" EntityType="Self.tblBookDetail" />
+    <EntitySet Name="tblBorrows" EntityType="Self.tblBorrow" />
+    <AssociationSet Name="FK_tblBorrow_tblAccount" Association="Self.FK_tblBorrow_tblAccount">
+      <End Role="tblAccount" EntitySet="tblAccounts" />
+      <End Role="tblBorrow" EntitySet="tblBorrows" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBookDetail_tblBook" Association="Self.FK_tblBookDetail_tblBook">
+      <End Role="tblBook" EntitySet="tblBooks" />
+      <End Role="tblBookDetail" EntitySet="tblBookDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBorrow_tblBookDetail" Association="Self.FK_tblBorrow_tblBookDetail">
+      <End Role="tblBookDetail" EntitySet="tblBookDetails" />
+      <End Role="tblBorrow" EntitySet="tblBorrows" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,100 @@
+D:\FPTLibrary\FPTLibrary\bin\ApplicationInsights.config
+D:\FPTLibrary\FPTLibrary\bin\roslyn\csc.exe
+D:\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\FPTLibrary\FPTLibrary\bin\roslyn\System.Collections.Immutable.dll
+D:\FPTLibrary\FPTLibrary\bin\roslyn\System.Reflection.Metadata.dll
+D:\FPTLibrary\FPTLibrary\bin\roslyn\vbc.exe
+D:\FPTLibrary\FPTLibrary\bin\roslyn\VBCSCompiler.exe
+D:\FPTLibrary\FPTLibrary\bin\roslyn\VBCSCompiler.exe.config
+D:\FPTLibrary\FPTLibrary\bin\FPTLibrary.dll.config
+D:\FPTLibrary\FPTLibrary\bin\FPTLibrary.dll
+D:\FPTLibrary\FPTLibrary\bin\FPTLibrary.pdb
+D:\FPTLibrary\FPTLibrary\bin\EntityFramework.dll
+D:\FPTLibrary\FPTLibrary\bin\EntityFramework.SqlServer.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.Agent.Intercept.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.DependencyCollector.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.Web.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.WindowsServer.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.ApplicationInsights.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.Web.Infrastructure.dll
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Helpers.dll
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Mvc.dll
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Razor.dll
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.Deployment.dll
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.dll
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.Razor.dll
+D:\FPTLibrary\FPTLibrary\bin\EntityFramework.xml
+D:\FPTLibrary\FPTLibrary\bin\EntityFramework.SqlServer.xml
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.DependencyCollector.xml
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.Web.xml
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.AI.WindowsServer.xml
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.ApplicationInsights.xml
+D:\FPTLibrary\FPTLibrary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Razor.xml
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.xml
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.Deployment.xml
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.Razor.xml
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Helpers.xml
+D:\FPTLibrary\FPTLibrary\bin\System.Web.Mvc.xml
+D:\FPTLibrary\FPTLibrary\obj\Debug\FPTLibrary.dll
+D:\FPTLibrary\FPTLibrary\obj\Debug\FPTLibrary.pdb
+D:\FPTLibrary\FPTLibrary\obj\Debug\FPTLibrary.csprojResolveAssemblyReference.cache
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\ApplicationInsights.config
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\csc.exe
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\System.Collections.Immutable.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\System.Reflection.Metadata.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\vbc.exe
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\VBCSCompiler.exe
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\roslyn\VBCSCompiler.exe.config
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\FPTLibrary.dll.config
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\FPTLibrary.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\FPTLibrary.pdb
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\EntityFramework.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\EntityFramework.SqlServer.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.Agent.Intercept.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.DependencyCollector.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.Web.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.WindowsServer.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.ApplicationInsights.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.Web.Infrastructure.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Helpers.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Mvc.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Razor.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.Deployment.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.Razor.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\EntityFramework.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\EntityFramework.SqlServer.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.DependencyCollector.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.Web.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.AI.WindowsServer.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.ApplicationInsights.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Razor.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.Deployment.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Webpages.Razor.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Helpers.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\bin\System.Web.Mvc.xml
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\obj\Debug\FPTLibrary.csprojResolveAssemblyReference.cache
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\obj\Debug\FPTLibrary.dll
+D:\2. My Code\C#\FPTLibrary\FPTLibrary\obj\Debug\FPTLibrary.pdb

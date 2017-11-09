@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookLibraryModelStoreContainer" CdmEntityContainer="BookLibraryEntities">
+    <EntitySetMapping Name="tblAccounts">
+      <EntityTypeMapping TypeName="BookLibraryModel.tblAccount">
+        <MappingFragment StoreEntitySet="tblAccount">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Rollnumber" ColumnName="Rollnumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBooks">
+      <EntityTypeMapping TypeName="BookLibraryModel.tblBook">
+        <MappingFragment StoreEntitySet="tblBook">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Author" ColumnName="Author" />
+          <ScalarProperty Name="Catagories" ColumnName="Catagories" />
+          <ScalarProperty Name="Place" ColumnName="Place" />
+          <ScalarProperty Name="AddDate" ColumnName="AddDate" />
+          <ScalarProperty Name="CoverPicture" ColumnName="CoverPicture" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBookDetails">
+      <EntityTypeMapping TypeName="BookLibraryModel.tblBookDetail">
+        <MappingFragment StoreEntitySet="tblBookDetail">
+          <ScalarProperty Name="SubID" ColumnName="SubID" />
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBorrows">
+      <EntityTypeMapping TypeName="BookLibraryModel.tblBorrow">
+        <MappingFragment StoreEntitySet="tblBorrow">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BorrowerEmail" ColumnName="BorrowerEmail" />
+          <ScalarProperty Name="BookSubID" ColumnName="BookSubID" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="ExtendNumber" ColumnName="ExtendNumber" />
+          <ScalarProperty Name="IsEnd" ColumnName="IsEnd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

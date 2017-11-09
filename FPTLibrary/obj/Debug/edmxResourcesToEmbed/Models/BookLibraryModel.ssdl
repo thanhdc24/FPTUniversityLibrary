@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookLibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAccount">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rollnumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblBook">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="Author" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Catagories" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Place" Type="nvarchar" MaxLength="50" />
+    <Property Name="AddDate" Type="date" Nullable="false" />
+    <Property Name="CoverPicture" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblBookDetail">
+    <Key>
+      <PropertyRef Name="SubID" />
+    </Key>
+    <Property Name="SubID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="BookID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblBorrow">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BorrowerEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BookSubID" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CreateDate" Type="date" Nullable="false" />
+    <Property Name="ReturnDate" Type="date" Nullable="false" />
+    <Property Name="ExtendNumber" Type="int" Nullable="false" />
+    <Property Name="IsEnd" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblBookDetail_tblBook">
+    <End Role="tblBook" Type="Self.tblBook" Multiplicity="1" />
+    <End Role="tblBookDetail" Type="Self.tblBookDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBook">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblBookDetail">
+        <PropertyRef Name="BookID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBorrow_tblAccount">
+    <End Role="tblAccount" Type="Self.tblAccount" Multiplicity="1" />
+    <End Role="tblBorrow" Type="Self.tblBorrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblAccount">
+        <PropertyRef Name="Email" />
+      </Principal>
+      <Dependent Role="tblBorrow">
+        <PropertyRef Name="BorrowerEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblBorrow_tblBookDetail">
+    <End Role="tblBookDetail" Type="Self.tblBookDetail" Multiplicity="1" />
+    <End Role="tblBorrow" Type="Self.tblBorrow" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBookDetail">
+        <PropertyRef Name="SubID" />
+      </Principal>
+      <Dependent Role="tblBorrow">
+        <PropertyRef Name="BookSubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BookLibraryModelStoreContainer">
+    <EntitySet Name="tblAccount" EntityType="Self.tblAccount" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBook" EntityType="Self.tblBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBookDetail" EntityType="Self.tblBookDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBorrow" EntityType="Self.tblBorrow" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblBookDetail_tblBook" Association="Self.FK_tblBookDetail_tblBook">
+      <End Role="tblBook" EntitySet="tblBook" />
+      <End Role="tblBookDetail" EntitySet="tblBookDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBorrow_tblAccount" Association="Self.FK_tblBorrow_tblAccount">
+      <End Role="tblAccount" EntitySet="tblAccount" />
+      <End Role="tblBorrow" EntitySet="tblBorrow" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblBorrow_tblBookDetail" Association="Self.FK_tblBorrow_tblBookDetail">
+      <End Role="tblBookDetail" EntitySet="tblBookDetail" />
+      <End Role="tblBorrow" EntitySet="tblBorrow" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

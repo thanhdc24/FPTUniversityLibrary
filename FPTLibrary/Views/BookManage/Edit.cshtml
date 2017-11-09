@@ -1,0 +1,113 @@
+﻿@model FPTLibrary.Models.tblBook
+
+@{
+    ViewBag.Title = "Edit Book";
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+<div class="menuBar">
+    <ul>
+        <li style="width:20%;">ACTION</li>
+        <li style="width:40%;"><a href="/BookManage">BOOK MANAGE</a></li>
+        <li style="width:40%;"><a href="/BorrowsManage">BORROW-TRANSACTION MANAGE</a></li>
+    </ul>
+</div>
+
+<div class="mainInfo">
+    <div class="infoItem">
+
+        <div class="formTitle">Edit book information</div>
+
+        <div class="formDiv">
+            @using (Html.BeginForm("Edit",
+                              "BookManage",
+                              FormMethod.Post,
+                              new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" name="ID" value="@Model.ID" required />
+                <input type="hidden" name="CoverPicture" value="@Model.CoverPicture" required />
+
+                <table class="formTable">
+                    <tr>
+                        <td class="fieldName">
+                            Name
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="Name" value="@Model.Name" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Author
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="Author" value="@Model.Author" required />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Catagories
+                        </td>
+                        <td class="fieldInput">
+                            <select name="Catagories">
+                                <option>Design</option>
+                                <option>Economic</option>
+                                <option>Engineer</option>
+                                <option>Others</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Shelf
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="Place" value="@Model.Place" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Description
+                        </td>
+                        <td class="fieldInput">
+                            <textarea name="Description" rows="10" style="width: 80%;">@Model.Description</textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Status
+                        </td>
+                        <td class="fieldInput">
+                            <select name="Status">
+                                <option>Available</option>
+                                <option>Unavailable</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Cover
+                        </td>
+                        <td class="fieldInput">
+                            <input type="file" name="file" id="file" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="Save" class="actionbutton" />
+                            <div class="actionbutton" style="margin-left:20px;"><a href="/BookManage/Details/@Model.ID">Back</a></div>
+                        </td>
+                    </tr>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

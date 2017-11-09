@@ -1,0 +1,100 @@
+﻿@model IEnumerable<FPTLibrary.Models.tblBorrow>
+
+@{
+    ViewBag.Title = "Your Book";
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+
+
+<div class="menuBar">
+    <ul>
+        <li>CATEGORIES</li>
+        <li><a href="/BookExplore/Catagory/All">ALL</a></li>
+        <li><a href="/BookExplore/News">NEW BOOK</a></li>
+        <li><a href="/BookExplore/TopTrend">TRENDING</a></li>
+        <li><a href="/BookExplore/Catagory?value=Engineer">ENGINEER</a></li>
+        <li><a href="/BookExplore/Catagory?value=Economic">ECONOMIC</a></li>
+        <li><a href="/BookExplore/Catagory?value=Design">DESIGN</a></li>
+        <li><a href="/BookExplore/Catagory?value=Others">OTHERS</a></li>
+    </ul>
+</div>
+
+
+<div class="mainBookList">
+
+    <div class="bookViewer">
+        <ul class="bookList">
+            @foreach (var item in Model)
+            {
+                <li>
+                    <div class="bookInfo" onclick="window.location.href = '/BookExplore/Details/@item.tblBookDetail.tblBook.ID'">
+                        <img src="@item.tblBookDetail.tblBook.CoverPicture" alt="IMG" />
+                        @item.tblBookDetail.tblBook.Name
+                        <span>@item.tblBookDetail.tblBook.Author</span>
+                    </div>
+
+                    
+                        @{
+                            int date = (int)Math.Round((item.ReturnDate - DateTime.Now).TotalDays);
+                            string extendMessage;
+
+                            if (date < -3)
+                            {
+                                extendMessage ="OVER " + Math.Abs(date) + " DAYS - CAN'T EXTEND";
+                                <div class="bookStatus" style="background-color: red">
+                                    <span>@extendMessage</span>
+                                </div>
+                            }
+                            else
+                            {
+                                if (date < 2)
+                                {
+                                    if (item.ExtendNumber > 0)
+                                    {
+                                        extendMessage = Math.Abs(date) + " DAYS - " + item.ExtendNumber + " EXTENDS";
+                                        if (date < 0)
+                                        {
+                                            extendMessage = "OVER " + extendMessage;
+                                        }
+                                        <div class="bookStatus">
+                                            <span><a href="BookShelf/Extend/@item.ID">@extendMessage</a></span>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        extendMessage = Math.Abs(date) + " DAYS - CAN'T EXTEND";
+                                        if (date < 0)
+                                        {
+                                            extendMessage = "OVER " + extendMessage;
+                                        }
+                                        <div class="bookStatus" style="background-color: red">
+                                            <span>@extendMessage</span>
+                                        </div>
+                                    }
+
+                                }
+                                else
+                                {
+                                    if (item.ExtendNumber > 0)
+                                    {
+                                        extendMessage = date + " DAYS LEFT";
+                                        <div class="bookStatus" style="background-color: green">
+                                            <span>@extendMessage</span>
+                                        </div>
+                                    } else
+                                    {
+                                        extendMessage = date + " DAYS LEFT - CAN'T EXTEND";
+                                        <div class="bookStatus">
+                                            <span>@extendMessage</span>
+                                        </div>
+                                    }
+
+                                }
+                            }
+                        }
+                </li>
+            }
+        </ul>
+    </div>
+</div>

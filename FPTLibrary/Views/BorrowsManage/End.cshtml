@@ -1,0 +1,83 @@
+﻿@model FPTLibrary.Models.tblBorrow
+
+@{
+    ViewBag.Title = "End Transaction";
+    ViewBag.Rollnumber = Session["ROLLNUM"];
+}
+
+<div class="menuBar">
+    <ul>
+        <li style="width:20%;">ACTION</li>
+        <li style="width:40%;"><a href="/BookManage">BOOK MANAGE</a></li>
+        <li style="width:40%;"><a href="/BorrowsManage">BORROW-TRANSACTION MANAGE</a></li>
+    </ul>
+</div>
+
+<div class="mainInfo">
+    <div class="infoItem">
+
+        <div class="formTitle">End Transaction</div>
+
+        <div class="formDiv">
+            <form action="/BorrowsManage/End" method="POST">
+                <input type="hidden" name="BorrowId" value="@Model.ID" required />
+                <table class="formTable">
+                    <tr>
+                        <td class="fieldName">
+                            Email
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="Name" value="@Model.BorrowerEmail" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Instance ID
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="Author" value="@Model.BookSubID" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Create Date
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="CreateDate" value="@Model.CreateDate" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Status
+                        </td>
+                        <td class="fieldInput">
+                            <input type="text" name="DateStatus" value="@ViewBag.DayMessage" disabled />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="fieldName">
+                            Book Status
+                        </td>
+                        <td class="fieldInput">
+                            <select name="Status">
+                                <option>Lost</option>
+                                <option>Free</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="submit" value="End" class="actionbutton" />
+                            <div class="actionbutton" style="margin-left:20px;"><a href="/BorrowsManage">Back</a></div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
